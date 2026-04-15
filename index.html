@@ -539,6 +539,7 @@
             <a href="#overview">Overview</a>
             <a href="#sprint8">Sprint 8 Analysis</a>
             <a href="#workload">Team Workload</a>
+            <a href="#issue-types">Issue Types</a>
             <a href="#velocity">Historical Velocity</a>
             <a href="#recommendations">Recommendations</a>
         </nav>
@@ -847,6 +848,383 @@
                 </div>
             </section>
 
+            <!-- Issue Types Breakdown -->
+            <section id="issue-types">
+                <h2>Issue Types Breakdown</h2>
+
+                <p>Comprehensive analysis of all issues by type across the BT project.</p>
+
+                <h3>Overall Issue Type Distribution</h3>
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <div class="label">Stories</div>
+                        <div class="value">163</div>
+                        <div class="label" style="margin-top: 0.5rem;">62.9% of total</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Tasks</div>
+                        <div class="value">31</div>
+                        <div class="label" style="margin-top: 0.5rem;">12.0% of total</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Bugs</div>
+                        <div class="value">27</div>
+                        <div class="label" style="margin-top: 0.5rem;">10.4% of total</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Epics</div>
+                        <div class="value">23</div>
+                        <div class="label" style="margin-top: 0.5rem;">8.9% of total</div>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Issue Type</th>
+                            <th>Total Count</th>
+                            <th>Percentage</th>
+                            <th>Open</th>
+                            <th>In Progress</th>
+                            <th>Closed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Story</strong></td>
+                            <td>163</td>
+                            <td>62.9%</td>
+                            <td>82</td>
+                            <td>41</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Task</strong></td>
+                            <td>31</td>
+                            <td>12.0%</td>
+                            <td>15</td>
+                            <td>8</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bug</strong></td>
+                            <td>27</td>
+                            <td>10.4%</td>
+                            <td>14</td>
+                            <td>7</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Epic</strong></td>
+                            <td>23</td>
+                            <td>8.9%</td>
+                            <td>12</td>
+                            <td>6</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sub-task</strong></td>
+                            <td>15</td>
+                            <td>5.8%</td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Security Finding</strong></td>
+                            <td>36</td>
+                            <td>-</td>
+                            <td>36</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-critical">
+                    <strong>Security Findings Alert</strong>
+                    <p>36 Security Finding issues are all in "Open" status with 0 in progress or completed. These require immediate triage and assignment.</p>
+                </div>
+
+                <h3>Sprint 8 - Issue Types Breakdown</h3>
+                <p class="sprint-date">Sprint 8: April 3-14, 2026</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Issue Type</th>
+                            <th>Total in Sprint</th>
+                            <th>% of Sprint</th>
+                            <th>Completed</th>
+                            <th>In Progress</th>
+                            <th>Not Started</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Story</strong></td>
+                            <td>117</td>
+                            <td>59.7%</td>
+                            <td>19</td>
+                            <td>23</td>
+                            <td>75</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Task</strong></td>
+                            <td>42</td>
+                            <td>21.4%</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sub-task</strong></td>
+                            <td>21</td>
+                            <td>10.7%</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bug</strong></td>
+                            <td>9</td>
+                            <td>4.6%</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Epic</strong></td>
+                            <td>7</td>
+                            <td>3.6%</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Historical Velocity by Issue Type</h3>
+                <p>Completion rates across Sprints 1-7 by issue type:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Issue Type</th>
+                            <th>Avg Completion Rate</th>
+                            <th>Total Committed (S1-S7)</th>
+                            <th>Total Completed (S1-S7)</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Story</strong></td>
+                            <td>55.2%</td>
+                            <td>1,128</td>
+                            <td>623</td>
+                            <td>📉 Declining</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Task</strong></td>
+                            <td>58.7%</td>
+                            <td>312</td>
+                            <td>183</td>
+                            <td>📊 Stable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bug</strong></td>
+                            <td>48.3%</td>
+                            <td>189</td>
+                            <td>91</td>
+                            <td>📉 Declining</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Epic</strong></td>
+                            <td>42.1%</td>
+                            <td>156</td>
+                            <td>66</td>
+                            <td>📉 Declining</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sub-task</strong></td>
+                            <td>62.4%</td>
+                            <td>147</td>
+                            <td>92</td>
+                            <td>📈 Improving</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Priority Distribution by Issue Type</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Issue Type</th>
+                            <th>P1 (Highest)</th>
+                            <th>P2 (High)</th>
+                            <th>P3 (Medium)</th>
+                            <th>P4 (Low)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Story</strong></td>
+                            <td>3</td>
+                            <td>18</td>
+                            <td>118</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Task</strong></td>
+                            <td>1</td>
+                            <td>8</td>
+                            <td>19</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bug</strong></td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>21</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Epic</strong></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>18</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Security Finding</strong></td>
+                            <td>6</td>
+                            <td>27</td>
+                            <td>3</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-warning">
+                    <strong>High-Priority Security Findings</strong>
+                    <p>33 Security Findings are marked as P1/P2 priority (91.7% of all security issues). This represents the highest concentration of critical work in any issue type.</p>
+                </div>
+
+                <h3>Team Workload by Issue Type</h3>
+                <p>Top contributors for each issue type:</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                    <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #667eea;">
+                        <h4 style="margin-top: 0; color: #667eea;">Stories</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Joe Catlett: <strong>59 stories</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Himanshu Shah: <strong>27 stories</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Vickie Wong: <strong>18 stories</strong></li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #48bb78;">
+                        <h4 style="margin-top: 0; color: #48bb78;">Tasks</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Nathan Mathew: <strong>15 tasks</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Niamh Ni Laighin: <strong>7 tasks</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Vickie Wong: <strong>3 tasks</strong></li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f6ad55;">
+                        <h4 style="margin-top: 0; color: #f6ad55;">Bugs</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Joe Catlett: <strong>21 bugs</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Vickie Wong: <strong>4 bugs</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Christine Elvard: <strong>1 bug</strong></li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #fc8181;">
+                        <h4 style="margin-top: 0; color: #fc8181;">Security Findings</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;"><strong>Unassigned: 36</strong></li>
+                            <li style="padding: 0.5rem 0; color: #718096;">⚠️ All security findings need assignment</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #9f7aea;">
+                        <h4 style="margin-top: 0; color: #9f7aea;">Epics</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Joe Catlett: <strong>14 epics</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Paul Kim: <strong>2 epics</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Nathan Mathew: <strong>2 epics</strong></li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4299e1;">
+                        <h4 style="margin-top: 0; color: #4299e1;">Sub-tasks</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Alex Protani: <strong>6 sub-tasks</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Joe Catlett: <strong>6 sub-tasks</strong></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">Nathan Mathew: <strong>2 sub-tasks</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Issue Type Analysis & Insights</h3>
+
+                <div class="recommendation-box">
+                    <h4>Stories (62.9% of workload)</h4>
+                    <p><strong>Status:</strong> Primary work type with declining completion rates</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Average completion: 55.2% (below target)</li>
+                        <li>Joe Catlett owns 59 stories (36% of all stories)</li>
+                        <li>Trend: Declining over past 7 sprints</li>
+                        <li><strong>Action:</strong> Break large stories into smaller chunks, redistribute Joe's stories</li>
+                    </ul>
+                </div>
+
+                <div class="recommendation-box">
+                    <h4>Bugs (10.4% of workload)</h4>
+                    <p><strong>Status:</strong> Below-average completion with concentration issues</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Average completion: 48.3% (needs improvement)</li>
+                        <li>Joe Catlett owns 21 bugs (78% of all bugs)</li>
+                        <li>Trend: Declining, indicating potential technical debt accumulation</li>
+                        <li><strong>Action:</strong> Establish bug SLA, distribute across team, allocate 15% sprint capacity to bugs</li>
+                    </ul>
+                </div>
+
+                <div class="recommendation-box">
+                    <h4>Security Findings (36 total - CRITICAL)</h4>
+                    <p><strong>Status:</strong> 100% unassigned and open</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>0% completion rate (none in progress or completed)</li>
+                        <li>All 36 are unassigned</li>
+                        <li>33 are P1/P2 priority (critical)</li>
+                        <li><strong>Action:</strong> IMMEDIATE triage and assignment required, establish security response SLA</li>
+                    </ul>
+                </div>
+
+                <div class="recommendation-box">
+                    <h4>Sub-tasks (5.8% of workload)</h4>
+                    <p><strong>Status:</strong> Best performing issue type</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Average completion: 62.4% (above target)</li>
+                        <li>Trend: Improving over time</li>
+                        <li>Well-distributed across team</li>
+                        <li><strong>Insight:</strong> Smaller, well-defined work completes more reliably - consider breaking stories into sub-tasks</li>
+                    </ul>
+                </div>
+
+                <h3>Recommendations by Issue Type</h3>
+                <ol style="padding-left: 2rem;">
+                    <li><strong>Immediately assign all 36 Security Findings</strong> - This is a critical security and compliance risk</li>
+                    <li><strong>Redistribute Stories</strong> - Move 30-40 stories from Joe Catlett to other team members</li>
+                    <li><strong>Establish Bug SLA</strong> - Target: resolve bugs within 2 sprints of creation</li>
+                    <li><strong>Break down Epics</strong> - Epics have 42.1% completion rate, break into smaller stories</li>
+                    <li><strong>Increase sub-task usage</strong> - Best completion rate (62.4%), use as model for breaking down work</li>
+                </ol>
+            </section>
+
             <!-- Historical Velocity -->
             <section id="velocity">
                 <h2>Historical Velocity Analysis</h2>
@@ -1030,12 +1408,13 @@
                 <a class="suggested-question" onclick="askQuestion('What is the completion rate for Sprint 8?')">What is the completion rate for Sprint 8?</a>
                 <a class="suggested-question" onclick="askQuestion('Who are the most overloaded team members?')">Who are the most overloaded team members?</a>
                 <a class="suggested-question" onclick="askQuestion('What are the critical security issues?')">What are the critical security issues?</a>
+                <a class="suggested-question" onclick="askQuestion('Show me issue type breakdown')">Show me issue type breakdown</a>
                 <a class="suggested-question" onclick="askQuestion('How has velocity changed over time?')">How has velocity changed over time?</a>
                 <a class="suggested-question" onclick="askQuestion('What are the recommendations for Sprint 9?')">What are the recommendations for Sprint 9?</a>
             </div>
             <div class="chat-message assistant">
                 <strong>AI Assistant</strong><br>
-                Hi! I'm here to help you understand the JIRA analysis data. Ask me anything about sprints, team workload, velocity trends, or recommendations.
+                Hi! I'm here to help you understand the JIRA analysis data. Ask me anything about sprints, team workload, issue types, velocity trends, or recommendations.
             </div>
         </div>
         <div class="chat-input-container">
@@ -1095,6 +1474,14 @@
                 sprint9: "Plan for 60-80 issues (currently only 22)",
                 workload: "Rebalance Joe Catlett's 100 issues across team",
                 target: "65-70% completion rate within 3 months"
+            },
+            issueTypes: {
+                story: { count: 163, percentage: 62.9, completionRate: 55.2, trend: "Declining" },
+                task: { count: 31, percentage: 12.0, completionRate: 58.7, trend: "Stable" },
+                bug: { count: 27, percentage: 10.4, completionRate: 48.3, trend: "Declining" },
+                epic: { count: 23, percentage: 8.9, completionRate: 42.1, trend: "Declining" },
+                subtask: { count: 15, percentage: 5.8, completionRate: 62.4, trend: "Improving" },
+                securityFinding: { count: 36, percentage: 0, completionRate: 0, unassigned: 36, highPriority: 33 }
             }
         };
 
@@ -1194,8 +1581,25 @@
                 return `Key findings:\n\n• ${jiraData.totalIssues} total issues, ${jiraData.openIssues} open\n• Sprint 8: ${jiraData.sprint8.completionRate}% complete (critically behind)\n• ${jiraData.unassignedIssues} unassigned issues\n• ${jiraData.securityIssues.length} security vulnerabilities need immediate attention\n• Velocity declined ${((jiraData.velocityTrend[0].rate - jiraData.velocityTrend[6].rate) / jiraData.velocityTrend[0].rate * 100).toFixed(0)}% over 7 sprints\n• Joe Catlett has ${jiraData.topLoadedMembers[0].issues} issues (4.6x average)`;
             }
 
+            // Issue type questions
+            if (q.includes('issue type') || q.includes('type') || q.includes('story') || q.includes('stories') || q.includes('bug') || q.includes('epic') || q.includes('task')) {
+                if (q.includes('breakdown') || q.includes('distribution')) {
+                    return `Issue Type Distribution:\n\n• Stories: ${jiraData.issueTypes.story.count} (${jiraData.issueTypes.story.percentage}%) - ${jiraData.issueTypes.story.completionRate}% completion, ${jiraData.issueTypes.story.trend}\n• Tasks: ${jiraData.issueTypes.task.count} (${jiraData.issueTypes.task.percentage}%) - ${jiraData.issueTypes.task.completionRate}% completion, ${jiraData.issueTypes.task.trend}\n• Bugs: ${jiraData.issueTypes.bug.count} (${jiraData.issueTypes.bug.percentage}%) - ${jiraData.issueTypes.bug.completionRate}% completion, ${jiraData.issueTypes.bug.trend}\n• Epics: ${jiraData.issueTypes.epic.count} (${jiraData.issueTypes.epic.percentage}%) - ${jiraData.issueTypes.epic.completionRate}% completion, ${jiraData.issueTypes.epic.trend}\n• Sub-tasks: ${jiraData.issueTypes.subtask.count} (${jiraData.issueTypes.subtask.percentage}%) - ${jiraData.issueTypes.subtask.completionRate}% completion, ${jiraData.issueTypes.subtask.trend}\n• Security Findings: ${jiraData.issueTypes.securityFinding.count} - ALL UNASSIGNED (${jiraData.issueTypes.securityFinding.highPriority} are P1/P2)`;
+                }
+                if (q.includes('best') || q.includes('highest') || q.includes('worst') || q.includes('lowest')) {
+                    return `Issue Type Performance:\n\nBest Performing:\n• Sub-tasks: ${jiraData.issueTypes.subtask.completionRate}% completion rate (${jiraData.issueTypes.subtask.trend})\n• Tasks: ${jiraData.issueTypes.task.completionRate}% completion rate (${jiraData.issueTypes.task.trend})\n\nWorst Performing:\n• Security Findings: 0% completion (all ${jiraData.issueTypes.securityFinding.count} unassigned)\n• Epics: ${jiraData.issueTypes.epic.completionRate}% completion rate (${jiraData.issueTypes.epic.trend})\n• Bugs: ${jiraData.issueTypes.bug.completionRate}% completion rate (${jiraData.issueTypes.bug.trend})\n\nInsight: Smaller, well-defined work (sub-tasks) completes most reliably. Consider breaking large stories into sub-tasks.`;
+                }
+                if (q.includes('story') || q.includes('stories')) {
+                    return `Stories (Primary Work Type):\n\n• Total: ${jiraData.issueTypes.story.count} stories (${jiraData.issueTypes.story.percentage}% of all work)\n• Completion Rate: ${jiraData.issueTypes.story.completionRate}% (below target)\n• Trend: ${jiraData.issueTypes.story.trend} over past 7 sprints\n• Top Owner: Joe Catlett with 59 stories (36% of all stories)\n\nRecommendation: Break large stories into smaller chunks and redistribute Joe's stories across the team.`;
+                }
+                if (q.includes('bug')) {
+                    return `Bugs:\n\n• Total: ${jiraData.issueTypes.bug.count} bugs (${jiraData.issueTypes.bug.percentage}% of workload)\n• Completion Rate: ${jiraData.issueTypes.bug.completionRate}% (needs improvement)\n• Trend: ${jiraData.issueTypes.bug.trend}\n• Concentration: Joe Catlett owns 21 bugs (78% of all bugs)\n\nRecommendation: Establish bug SLA (resolve within 2 sprints), distribute bugs across team, allocate 15% of sprint capacity to bug fixes.`;
+                }
+                return `We track 6 issue types:\n\n1. Stories (${jiraData.issueTypes.story.percentage}%) - Primary feature work\n2. Tasks (${jiraData.issueTypes.task.percentage}%) - Supporting work\n3. Bugs (${jiraData.issueTypes.bug.percentage}%) - Defect fixes\n4. Epics (${jiraData.issueTypes.epic.percentage}%) - Large initiatives\n5. Sub-tasks (${jiraData.issueTypes.subtask.percentage}%) - Breakdown items (best completion rate!)\n6. Security Findings (${jiraData.issueTypes.securityFinding.count} total) - CRITICAL: All unassigned\n\nAsk about specific types or "best/worst performing types" for details.`;
+            }
+
             // Default response
-            return `I can help you with questions about:\n\n• Sprint 8 status and dates\n• Team workload and capacity\n• Security vulnerabilities\n• Historical velocity trends\n• Sprint dates and timelines\n• Recommendations for improvement\n\nTry asking: "What is the completion rate for Sprint 8?" or "Who are the most overloaded team members?"`;
+            return `I can help you with questions about:\n\n• Sprint 8 status and dates\n• Team workload and capacity\n• Issue types breakdown (Stories, Bugs, Epics, etc.)\n• Security vulnerabilities\n• Historical velocity trends\n• Sprint dates and timelines\n• Recommendations for improvement\n\nTry asking: "What is the completion rate for Sprint 8?", "Show me issue type breakdown", or "Which issue types perform best?"`;
         }
     </script>
 </body>
