@@ -479,6 +479,124 @@
             font-style: italic;
         }
 
+        .filter-controls {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-controls label {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .filter-controls select {
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: white;
+            cursor: pointer;
+            min-width: 250px;
+            transition: border-color 0.3s;
+        }
+
+        .filter-controls select:hover {
+            border-color: #667eea;
+        }
+
+        .filter-controls select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .workload-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            transition: all 0.3s;
+        }
+
+        .workload-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .workload-card.overloaded {
+            border-color: #fc8181;
+            background: #fff5f5;
+        }
+
+        .workload-card.underutilized {
+            border-color: #68d391;
+            background: #f0fff4;
+        }
+
+        .workload-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .workload-name {
+            font-weight: bold;
+            color: #2d3748;
+            font-size: 1.1rem;
+        }
+
+        .workload-total {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .workload-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .workload-stat {
+            text-align: center;
+            padding: 0.5rem;
+            background: #f7fafc;
+            border-radius: 4px;
+        }
+
+        .workload-stat-label {
+            font-size: 0.75rem;
+            color: #718096;
+            text-transform: uppercase;
+        }
+
+        .workload-stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .sprint-info-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         @media print {
             nav {
                 display: none;
@@ -1092,78 +1210,64 @@
             <section id="workload">
                 <h2>Team Workload Analysis</h2>
 
-                <div class="metric-grid">
-                    <div class="metric-card">
-                        <div class="label">Total Assigned Issues</div>
-                        <div class="value">259</div>
+                <p>Interactive workload breakdown by sprint and team member. Select a sprint to see detailed assignments.</p>
+
+                <!-- Sprint Filter -->
+                <div class="filter-controls">
+                    <div>
+                        <label for="sprintFilter">Select Sprint:</label>
                     </div>
-                    <div class="metric-card">
-                        <div class="label">Unassigned Issues</div>
-                        <div class="value">100</div>
+                    <select id="sprintFilter" onchange="filterBySprint(this.value)">
+                        <option value="all">All Open Issues (Overall)</option>
+                        <option value="sprint8">Sprint 8 (Apr 3-14, 2026) - COMPLETED</option>
+                        <option value="sprint9" selected>Sprint 9 (Apr 15-28, 2026) - ACTIVE ⭐</option>
+                        <option value="sprint10">Sprint 10 (Upcoming)</option>
+                    </select>
+                </div>
+
+                <!-- Sprint Info Banner -->
+                <div class="sprint-info-banner" id="sprintInfoBanner">
+                    <div>
+                        <strong id="sprintName">Sprint 9 - ACTIVE</strong>
+                        <div id="sprintDates" style="font-size: 0.9rem; opacity: 0.9;">April 15 - April 28, 2026 (13 days) | Day 1 - 13 days remaining</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="label">Average per Person</div>
-                        <div class="value">21.6</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="label">Team Members</div>
-                        <div class="value">12</div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 1.5rem; font-weight: bold;" id="sprintTotal">22</div>
+                        <div style="font-size: 0.85rem;">issues planned</div>
                     </div>
                 </div>
 
-                <h3>Top 5 Most Loaded Team Members</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Team Member</th>
-                            <th>Total Issues</th>
-                            <th>In Progress</th>
-                            <th>UAT</th>
-                            <th>New</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Joe Catlett</td>
-                            <td><strong>100</strong></td>
-                            <td>7</td>
-                            <td>2</td>
-                            <td>78</td>
-                        </tr>
-                        <tr>
-                            <td>Himanshu Shah</td>
-                            <td>28</td>
-                            <td>3</td>
-                            <td>13</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>Nathan Mathew</td>
-                            <td>28</td>
-                            <td>4</td>
-                            <td>2</td>
-                            <td>17</td>
-                        </tr>
-                        <tr>
-                            <td>Vickie Wong</td>
-                            <td>27</td>
-                            <td>7</td>
-                            <td>1</td>
-                            <td>11</td>
-                        </tr>
-                        <tr>
-                            <td>Christine Elvard</td>
-                            <td>16</td>
-                            <td>2</td>
-                            <td>7</td>
-                            <td>4</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- Overall Metrics -->
+                <div class="metric-grid" id="overallMetrics">
+                    <div class="metric-card">
+                        <div class="label">Total Assigned</div>
+                        <div class="value" id="totalAssigned">22</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Team Members</div>
+                        <div class="value" id="teamMemberCount">10</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Avg per Person</div>
+                        <div class="value" id="avgPerPerson">2.2</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Unassigned</div>
+                        <div class="value" id="unassignedCount">1</div>
+                    </div>
+                </div>
 
-                <div class="alert alert-warning">
-                    <strong>Workload Imbalance Detected</strong>
-                    <p>Joe Catlett has 100 issues (4.6x average workload). This represents a critical capacity bottleneck and potential burnout risk. Immediate redistribution recommended.</p>
+                <div class="alert alert-info" style="margin: 2rem 0;">
+                    <strong>💡 Color Legend:</strong>
+                    <span style="color: #c53030;">Red border</span> = Overloaded (&gt;15 issues) |
+                    <span style="color: #38a169;">Green border</span> = Under-utilized (&lt;5 issues) |
+                    White = Normal load
+                </div>
+
+                <!-- Team Members Workload -->
+                <h3 id="workloadTitle">All Team Members - Sprint 9 Workload</h3>
+                <div id="teamWorkloadContainer">
+                    <!-- Will be populated by JavaScript -->
                 </div>
             </section>
 
@@ -1816,6 +1920,87 @@
                 epic: { count: 23, percentage: 8.9, completionRate: 42.1, trend: "Declining" },
                 subtask: { count: 15, percentage: 5.8, completionRate: 62.4, trend: "Improving" },
                 securityFinding: { count: 36, percentage: 0, completionRate: 0, unassigned: 36, highPriority: 33 }
+            },
+            teamWorkload: {
+                all: {
+                    name: "All Open Issues",
+                    dates: "Overall",
+                    totalIssues: 259,
+                    unassigned: 100,
+                    members: [
+                        { name: "Joe Catlett", total: 100, new: 78, inProgress: 7, uat: 2, done: 0, onHold: 4, other: 9 },
+                        { name: "Himanshu Shah", total: 28, new: 5, inProgress: 3, uat: 13, done: 0, onHold: 1, other: 6 },
+                        { name: "Nathan Mathew", total: 28, new: 17, inProgress: 4, uat: 2, done: 0, onHold: 3, other: 2 },
+                        { name: "Vickie Wong", total: 27, new: 11, inProgress: 7, uat: 1, done: 0, onHold: 5, other: 3 },
+                        { name: "Christine Elvard", total: 16, new: 4, inProgress: 2, uat: 7, done: 0, onHold: 1, other: 2 },
+                        { name: "Paul Kim", total: 14, new: 7, inProgress: 1, uat: 3, done: 0, onHold: 2, other: 1 },
+                        { name: "Niamh Ni Laighin", total: 13, new: 3, inProgress: 4, uat: 4, done: 0, onHold: 0, other: 2 },
+                        { name: "Alex Protani", total: 10, new: 2, inProgress: 2, uat: 0, done: 0, onHold: 6, other: 0 },
+                        { name: "Aubrey Danielson", total: 9, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 1, other: 8 },
+                        { name: "Ian McGoldrick", total: 6, new: 3, inProgress: 0, uat: 2, done: 0, onHold: 0, other: 1 },
+                        { name: "Naama Moshe", total: 6, new: 3, inProgress: 2, uat: 0, done: 0, onHold: 0, other: 1 },
+                        { name: "Leonard Chiem", total: 2, new: 1, inProgress: 1, uat: 0, done: 0, onHold: 0, other: 0 }
+                    ]
+                },
+                sprint8: {
+                    name: "Sprint 8 (COMPLETED)",
+                    dates: "April 3-14, 2026",
+                    totalIssues: 196,
+                    unassigned: 0,
+                    members: [
+                        { name: "Joe Catlett", total: 31, new: 15, inProgress: 4, uat: 0, done: 0, onHold: 2, other: 10 },
+                        { name: "Nathan Mathew", total: 26, new: 7, inProgress: 2, uat: 0, done: 1, onHold: 0, other: 16 },
+                        { name: "Liz Shannon", total: 14, new: 2, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 12 },
+                        { name: "Joel Guilford", total: 12, new: 0, inProgress: 2, uat: 0, done: 1, onHold: 0, other: 9 },
+                        { name: "Johanna Fong", total: 11, new: 0, inProgress: 2, uat: 0, done: 4, onHold: 0, other: 5 },
+                        { name: "Alex Protani", total: 11, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 6, other: 5 },
+                        { name: "Himanshu Shah", total: 10, new: 0, inProgress: 0, uat: 0, done: 2, onHold: 0, other: 8 },
+                        { name: "Niamh Ni Laighin", total: 10, new: 1, inProgress: 1, uat: 0, done: 1, onHold: 0, other: 7 },
+                        { name: "Christine Elvard", total: 9, new: 1, inProgress: 1, uat: 0, done: 1, onHold: 0, other: 6 },
+                        { name: "Jonathan Smelkinson", total: 8, new: 0, inProgress: 2, uat: 0, done: 1, onHold: 0, other: 5 },
+                        { name: "Rohit Wadne", total: 7, new: 0, inProgress: 1, uat: 0, done: 0, onHold: 0, other: 6 },
+                        { name: "Kyle Hasty", total: 7, new: 1, inProgress: 1, uat: 0, done: 1, onHold: 0, other: 4 },
+                        { name: "Ian McGoldrick", total: 5, new: 0, inProgress: 0, uat: 0, done: 2, onHold: 0, other: 3 },
+                        { name: "Vickie Wong", total: 5, new: 0, inProgress: 2, uat: 0, done: 0, onHold: 0, other: 3 },
+                        { name: "Paul Kim", total: 4, new: 0, inProgress: 1, uat: 0, done: 0, onHold: 0, other: 3 },
+                        { name: "Rishabh Kulhare", total: 3, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 3 },
+                        { name: "Naama Moshe", total: 2, new: 1, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 1 },
+                        { name: "Erin Ruby", total: 1, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 1 },
+                        { name: "Leonard Chiem", total: 1, new: 0, inProgress: 1, uat: 0, done: 0, onHold: 0, other: 0 }
+                    ]
+                },
+                sprint9: {
+                    name: "Sprint 9 (ACTIVE)",
+                    dates: "April 15-28, 2026",
+                    totalIssues: 22,
+                    unassigned: 1,
+                    members: [
+                        { name: "Paul Kim", total: 6, new: 3, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 3 },
+                        { name: "Himanshu Shah", total: 2, new: 1, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 1 },
+                        { name: "Justin Orr", total: 2, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 2 },
+                        { name: "Christine Elvard", total: 2, new: 0, inProgress: 0, uat: 1, done: 0, onHold: 0, other: 1 },
+                        { name: "Kyle Hasty", total: 2, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 1, other: 1 },
+                        { name: "Niamh Ni Laighin", total: 2, new: 1, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 1 },
+                        { name: "Joel Guilford", total: 1, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 1 },
+                        { name: "Johanna Fong", total: 1, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 1, other: 0 },
+                        { name: "Ian McGoldrick", total: 1, new: 1, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 0 },
+                        { name: "Nathan Mathew", total: 1, new: 1, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 0 },
+                        { name: "Joe Catlett", total: 0, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 0 },
+                        { name: "Liz Shannon", total: 0, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 0 }
+                    ]
+                },
+                sprint10: {
+                    name: "Sprint 10 (Upcoming)",
+                    dates: "TBD",
+                    totalIssues: 8,
+                    unassigned: 1,
+                    members: [
+                        { name: "Himanshu Shah", total: 4, new: 2, inProgress: 2, uat: 0, done: 0, onHold: 0, other: 0 },
+                        { name: "Aubrey Danielson", total: 1, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 1 },
+                        { name: "Niamh Ni Laighin", total: 1, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 0, other: 1 },
+                        { name: "Ian McGoldrick", total: 1, new: 0, inProgress: 0, uat: 0, done: 0, onHold: 1, other: 0 }
+                    ]
+                }
             }
         };
 
@@ -1951,6 +2136,106 @@
             // Default response
             return `I can help you with questions about:\n\n• Sprint 8 status and dates (current sprint)\n• Sprint 9 planning (next sprint)\n• Team workload and capacity\n• Issue types breakdown (Stories, Bugs, Epics, etc.)\n• Security vulnerabilities\n• Historical velocity trends\n• Recommendations for improvement\n\nTry asking: "What is the completion rate for Sprint 8?", "Is Sprint 9 ready?", or "Show me issue type breakdown"`;
         }
+
+        // Team Workload Filtering Functions
+        function filterBySprint(sprintKey) {
+            const sprintData = jiraData.teamWorkload[sprintKey];
+
+            // Update sprint info banner
+            document.getElementById('sprintName').textContent = sprintData.name;
+            document.getElementById('sprintDates').textContent = sprintData.dates;
+            document.getElementById('sprintTotal').textContent = sprintData.totalIssues;
+
+            // Update overall metrics
+            document.getElementById('totalAssigned').textContent = sprintData.totalIssues - sprintData.unassigned;
+            document.getElementById('teamMemberCount').textContent = sprintData.members.length;
+            document.getElementById('avgPerPerson').textContent = ((sprintData.totalIssues - sprintData.unassigned) / sprintData.members.length).toFixed(1);
+            document.getElementById('unassignedCount').textContent = sprintData.unassigned;
+
+            // Update title
+            document.getElementById('workloadTitle').textContent = `All Team Members - ${sprintData.name}`;
+
+            // Render team workload cards
+            renderTeamWorkload(sprintData.members, sprintKey);
+        }
+
+        function renderTeamWorkload(members, sprintKey) {
+            const container = document.getElementById('teamWorkloadContainer');
+            container.innerHTML = '';
+
+            // Sort by total (descending)
+            const sortedMembers = [...members].sort((a, b) => b.total - a.total);
+
+            sortedMembers.forEach(member => {
+                if (member.total === 0 && sprintKey !== 'all' && sprintKey !== 'sprint9') return; // Skip zero assignments except for all/sprint9
+
+                const card = document.createElement('div');
+                card.className = 'workload-card';
+
+                // Add overloaded/underutilized classes
+                if (member.total > 15) {
+                    card.classList.add('overloaded');
+                } else if (member.total < 5 && member.total > 0) {
+                    card.classList.add('underutilized');
+                }
+
+                card.innerHTML = `
+                    <div class="workload-header">
+                        <div class="workload-name">${member.name}</div>
+                        <div class="workload-total">${member.total}</div>
+                    </div>
+                    <div class="workload-breakdown">
+                        <div class="workload-stat">
+                            <div class="workload-stat-label">New</div>
+                            <div class="workload-stat-value">${member.new}</div>
+                        </div>
+                        <div class="workload-stat">
+                            <div class="workload-stat-label">In Progress</div>
+                            <div class="workload-stat-value">${member.inProgress}</div>
+                        </div>
+                        <div class="workload-stat">
+                            <div class="workload-stat-label">UAT</div>
+                            <div class="workload-stat-value">${member.uat}</div>
+                        </div>
+                        <div class="workload-stat">
+                            <div class="workload-stat-label">Done</div>
+                            <div class="workload-stat-value">${member.done}</div>
+                        </div>
+                        <div class="workload-stat">
+                            <div class="workload-stat-label">On Hold</div>
+                            <div class="workload-stat-value">${member.onHold}</div>
+                        </div>
+                        <div class="workload-stat">
+                            <div class="workload-stat-label">Other</div>
+                            <div class="workload-stat-value">${member.other}</div>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Add zero-assignment alert for Sprint 9
+            if (sprintKey === 'sprint9') {
+                const zeroMembers = members.filter(m => m.total === 0);
+                if (zeroMembers.length > 0) {
+                    const alert = document.createElement('div');
+                    alert.className = 'alert alert-warning';
+                    alert.style.marginTop = '2rem';
+                    alert.innerHTML = `
+                        <strong>⚠️ ${zeroMembers.length} Team Members with Zero Sprint 9 Assignments:</strong>
+                        <p>${zeroMembers.map(m => m.name).join(', ')}</p>
+                        <p style="margin-top: 0.5rem;">These team members should be allocated Sprint 8 carryover work immediately.</p>
+                    `;
+                    container.appendChild(alert);
+                }
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            filterBySprint('sprint9'); // Default to Sprint 9 (active)
+        });
     </script>
 </body>
 </html>
