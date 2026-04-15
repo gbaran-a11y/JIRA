@@ -654,6 +654,7 @@
 
         <nav>
             <a href="#executive-summary">Executive Summary</a>
+            <a href="#qbr-scorecard">QBR Scorecard</a>
             <a href="#overview">Overview</a>
             <a href="#sprint8">Sprint 8 Analysis</a>
             <a href="#sprint9">Sprint 9 Planning</a>
@@ -705,6 +706,417 @@
                     <li><strong>Workload Imbalance:</strong> Joe Catlett (100 issues), key contributors under-allocated in Sprint 9</li>
                     <li><strong>Declining Velocity:</strong> Completion rate dropped from 60.8% (Sprint 1) to 32.4% (Sprint 7)</li>
                 </ul>
+            </section>
+
+            <!-- QBR Scorecard -->
+            <section id="qbr-scorecard">
+                <h2>QBR Scorecard</h2>
+
+                <div class="alert alert-info">
+                    <strong>About This Scorecard:</strong> Quarterly Business Review (QBR) metrics framework for tracking BT project health and delivery performance. Metrics align with Tenable engineering standards (February 2026).
+                </div>
+
+                <h3>Overall Health Dashboard</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">Metric</th>
+                            <th style="width: 15%;">Current Status</th>
+                            <th style="width: 15%;">Target</th>
+                            <th style="width: 15%;">Status</th>
+                            <th style="width: 25%;">Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Portfolio Predictability</strong></td>
+                            <td>27.4%</td>
+                            <td>≥80%</td>
+                            <td><span class="badge" style="background: #dc3545;">🔴 Red</span></td>
+                            <td>Declining (60.8% → 27.4%)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Concept-to-Value Lead Time</strong></td>
+                            <td><em>Not Tracked</em></td>
+                            <td>&lt;30 days</td>
+                            <td><span class="badge" style="background: #6c757d;">⚫ Unknown</span></td>
+                            <td>Data gap - needs tracking</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deployment Frequency</strong></td>
+                            <td><em>Not Tracked</em></td>
+                            <td>Daily+</td>
+                            <td><span class="badge" style="background: #6c757d;">⚫ Unknown</span></td>
+                            <td>Data gap - needs tracking</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Change Failure Rate</strong></td>
+                            <td><em>Not Tracked</em></td>
+                            <td>&lt;15%</td>
+                            <td><span class="badge" style="background: #6c757d;">⚫ Unknown</span></td>
+                            <td>Data gap - needs tracking</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Capacity Allocation</strong></td>
+                            <td>Growth: ~63%<br>Run: ~27%<br>Debt: ~10%</td>
+                            <td>Growth: 60%<br>Run: 30%<br>Debt: 10%</td>
+                            <td><span class="badge" style="background: #28a745;">🟢 Green</span></td>
+                            <td>Well-balanced allocation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Portfolio Visibility Index</strong></td>
+                            <td>~70%</td>
+                            <td>≥90%</td>
+                            <td><span class="badge" style="background: #ffc107; color: #000;">🟡 Yellow</span></td>
+                            <td>100 unassigned (28% of open)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Priority Stability Index</strong></td>
+                            <td><em>Not Tracked</em></td>
+                            <td>&lt;20% churn</td>
+                            <td><span class="badge" style="background: #6c757d;">⚫ Unknown</span></td>
+                            <td>Data gap - needs tracking</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Critical Findings:</strong>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li><strong>Portfolio Predictability at 27.4%</strong> - Far below 80% target. Sprint completion rates declining from 60.8% (Sprint 1) to 27.4% (Sprint 7 average).</li>
+                        <li><strong>4 of 7 Metrics Not Tracked</strong> - Missing critical DORA metrics (deployment frequency, change failure rate) and lead time data.</li>
+                        <li><strong>Workload Visibility Gap</strong> - 28% of open issues unassigned impacts portfolio visibility.</li>
+                    </ul>
+                </div>
+
+                <h3>1. Portfolio Predictability</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #667eea; margin: 1rem 0;">
+                    <p><strong>Definition:</strong> Ratio of delivered work to committed work, measuring team's ability to forecast sprint capacity accurately.</p>
+                    <p><strong>Calculation:</strong> (Completed Issues / Total Committed Issues) × 100</p>
+                    <p><strong>Color Thresholds:</strong></p>
+                    <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+                        <li>🟢 Green: ≥80% completion</li>
+                        <li>🟡 Yellow: 60-79% completion</li>
+                        <li>🔴 Red: &lt;60% completion</li>
+                    </ul>
+                </div>
+
+                <h4>Current Performance (Sprints 1-7)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sprint</th>
+                            <th>Committed</th>
+                            <th>Completed</th>
+                            <th>Completion %</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sprint 1</td>
+                            <td>142</td>
+                            <td>86</td>
+                            <td>60.8%</td>
+                            <td><span class="badge" style="background: #ffc107; color: #000;">🟡 Yellow</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 2</td>
+                            <td>163</td>
+                            <td>87</td>
+                            <td>53.4%</td>
+                            <td><span class="badge" style="background: #dc3545;">🔴 Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 3</td>
+                            <td>180</td>
+                            <td>84</td>
+                            <td>46.7%</td>
+                            <td><span class="badge" style="background: #dc3545;">🔴 Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 4</td>
+                            <td>199</td>
+                            <td>81</td>
+                            <td>40.7%</td>
+                            <td><span class="badge" style="background: #dc3545;">🔴 Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 5</td>
+                            <td>220</td>
+                            <td>86</td>
+                            <td>39.1%</td>
+                            <td><span class="badge" style="background: #dc3545;">🔴 Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 6</td>
+                            <td>228</td>
+                            <td>63</td>
+                            <td>27.6%</td>
+                            <td><span class="badge" style="background: #dc3545;">🔴 Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 7</td>
+                            <td>228</td>
+                            <td>74</td>
+                            <td>32.4%</td>
+                            <td><span class="badge" style="background: #dc3545;">🔴 Red</span></td>
+                        </tr>
+                        <tr style="font-weight: bold; background: #f8f9fa;">
+                            <td>Average (S1-S7)</td>
+                            <td>194</td>
+                            <td>80</td>
+                            <td>41.5%</td>
+                            <td><span class="badge" style="background: #dc3545;">🔴 Red</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-danger">
+                    <strong>🚨 Action Required:</strong> Portfolio predictability critically below target. Sprint 8 completion estimated at 22.4% (Day 7). Root cause analysis needed:
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Over-commitment pattern: Average 194 issues/sprint, completing only 80</li>
+                        <li>Workload imbalance: Top contributor (Joe Catlett) has 100 issues</li>
+                        <li>Capacity planning: Need better velocity-based forecasting</li>
+                        <li>Sprint 9 immediate action: Validate ~142 issue load (22 planned + 120 carryover)</li>
+                    </ul>
+                </div>
+
+                <h3>2. Concept-to-Value Lead Time</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #667eea; margin: 1rem 0;">
+                    <p><strong>Definition:</strong> Average time from work item creation to production deployment, measuring end-to-end delivery speed.</p>
+                    <p><strong>Calculation:</strong> Average(Production Deploy Date - Issue Created Date) across completed issues</p>
+                    <p><strong>Color Thresholds:</strong></p>
+                    <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+                        <li>🟢 Green: &lt;30 days</li>
+                        <li>🟡 Yellow: 30-60 days</li>
+                        <li>🔴 Red: &gt;60 days</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Data Gap:</strong> Lead time tracking not currently enabled in JIRA. To implement:
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Add "Production Deploy Date" custom field to issues</li>
+                        <li>Integrate with CI/CD pipeline to auto-populate deploy dates</li>
+                        <li>Create dashboard to track cycle time from "In Progress" → "Done"</li>
+                        <li>Baseline current state with manual audit of recent deployments</li>
+                    </ul>
+                </div>
+
+                <h3>3. Deployment Frequency</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #667eea; margin: 1rem 0;">
+                    <p><strong>Definition:</strong> How often the team deploys code to production, measuring delivery cadence and CI/CD maturity.</p>
+                    <p><strong>Calculation:</strong> Production deployments per week</p>
+                    <p><strong>Color Thresholds:</strong></p>
+                    <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+                        <li>🟢 Green: Daily+ (≥5/week)</li>
+                        <li>🟡 Yellow: Weekly (1-4/week)</li>
+                        <li>🔴 Red: Less than weekly</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Data Gap:</strong> Deployment frequency not tracked in JIRA. To implement:
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Integrate GitHub Actions/Jenkins with JIRA via webhooks</li>
+                        <li>Tag production deployments in CI/CD pipeline</li>
+                        <li>Create deployment dashboard with daily/weekly frequency metrics</li>
+                        <li>Establish baseline by auditing deployment logs from past quarter</li>
+                    </ul>
+                </div>
+
+                <h3>4. Change Failure Rate</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #667eea; margin: 1rem 0;">
+                    <p><strong>Definition:</strong> Percentage of production deployments that result in degraded service requiring hotfix/rollback.</p>
+                    <p><strong>Calculation:</strong> (Failed Deployments / Total Deployments) × 100</p>
+                    <p><strong>Color Thresholds:</strong></p>
+                    <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+                        <li>🟢 Green: &lt;15%</li>
+                        <li>🟡 Yellow: 15-30%</li>
+                        <li>🔴 Red: &gt;30%</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Data Gap:</strong> Change failure rate not tracked. To implement:
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Create "Hotfix" and "Rollback" issue types in JIRA</li>
+                        <li>Link hotfix issues to original deployment/release</li>
+                        <li>Track incident response time and resolution</li>
+                        <li>Integrate monitoring/alerting with JIRA for automatic incident creation</li>
+                        <li>Baseline current state by reviewing past incidents and correlating with deployments</li>
+                    </ul>
+                </div>
+
+                <h3>5. Capacity Allocation</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #667eea; margin: 1rem 0;">
+                    <p><strong>Definition:</strong> Distribution of team capacity across Growth (new features), Run (operations/support), and Debt (technical debt/bugs).</p>
+                    <p><strong>Calculation:</strong> Story points or issue count by category / Total capacity × 100</p>
+                    <p><strong>Target Allocation:</strong></p>
+                    <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+                        <li>Growth: 60%</li>
+                        <li>Run: 30%</li>
+                        <li>Debt: 10%</li>
+                    </ul>
+                </div>
+
+                <h4>Current Allocation (Based on Issue Types)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Issue Types</th>
+                            <th>Count</th>
+                            <th>Percentage</th>
+                            <th>Target</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Growth</strong></td>
+                            <td>Story, Epic, Improvement</td>
+                            <td>226</td>
+                            <td>63%</td>
+                            <td>60%</td>
+                            <td><span class="badge" style="background: #28a745;">🟢 Green</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Run</strong></td>
+                            <td>Task, Support, Operations</td>
+                            <td>97</td>
+                            <td>27%</td>
+                            <td>30%</td>
+                            <td><span class="badge" style="background: #28a745;">🟢 Green</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Debt</strong></td>
+                            <td>Bug, Security Finding, Tech Debt</td>
+                            <td>36</td>
+                            <td>10%</td>
+                            <td>10%</td>
+                            <td><span class="badge" style="background: #28a745;">🟢 Green</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-success">
+                    <strong>✅ Well-Balanced Allocation:</strong> Current capacity distribution aligns with target ratios. Team is appropriately focused on growth initiatives while maintaining operational support and addressing technical debt.
+                </div>
+
+                <h3>6. Portfolio Visibility Index</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #667eea; margin: 1rem 0;">
+                    <p><strong>Definition:</strong> Percentage of work items with clear ownership, priorities, and acceptance criteria.</p>
+                    <p><strong>Calculation:</strong> (Assigned Issues with Priority / Total Open Issues) × 100</p>
+                    <p><strong>Color Thresholds:</strong></p>
+                    <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+                        <li>🟢 Green: ≥90%</li>
+                        <li>🟡 Yellow: 75-89%</li>
+                        <li>🔴 Red: &lt;75%</li>
+                    </ul>
+                </div>
+
+                <h4>Current Visibility Metrics</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Value</th>
+                            <th>Target</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Open Issues</td>
+                            <td>359</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Assigned Issues</td>
+                            <td>259</td>
+                            <td>≥323 (90%)</td>
+                            <td><span class="badge" style="background: #ffc107; color: #000;">🟡 Yellow</span></td>
+                        </tr>
+                        <tr>
+                            <td>Unassigned Issues</td>
+                            <td>100 (28%)</td>
+                            <td>&lt;36 (10%)</td>
+                            <td><span class="badge" style="background: #ffc107; color: #000;">🟡 Yellow</span></td>
+                        </tr>
+                        <tr>
+                            <td>Issues with Priority</td>
+                            <td>238</td>
+                            <td>≥323 (90%)</td>
+                            <td><span class="badge" style="background: #ffc107; color: #000;">🟡 Yellow</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Visibility Index</strong></td>
+                            <td><strong>~72%</strong></td>
+                            <td><strong>≥90%</strong></td>
+                            <td><span class="badge" style="background: #ffc107; color: #000;">🟡 Yellow</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Improvement Needed:</strong>
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>100 unassigned issues (28% of open work) - needs immediate triage</li>
+                        <li>36 security findings unassigned - critical risk</li>
+                        <li>Action: Weekly backlog grooming session to assign and prioritize all open issues</li>
+                        <li>Goal: Reduce unassigned to &lt;10% within 2 sprints</li>
+                    </ul>
+                </div>
+
+                <h3>7. Priority Stability Index</h3>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #667eea; margin: 1rem 0;">
+                    <p><strong>Definition:</strong> Measures how often priorities change mid-sprint, indicating planning stability and stakeholder alignment.</p>
+                    <p><strong>Calculation:</strong> (Issues with Priority Changes During Sprint / Total Sprint Issues) × 100</p>
+                    <p><strong>Color Thresholds:</strong></p>
+                    <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+                        <li>🟢 Green: &lt;20% churn</li>
+                        <li>🟡 Yellow: 20-35% churn</li>
+                        <li>🔴 Red: &gt;35% churn</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Data Gap:</strong> Priority stability not tracked. To implement:
+                    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Enable JIRA changelog tracking for priority field changes</li>
+                        <li>Create automation rule to flag mid-sprint priority changes</li>
+                        <li>Dashboard showing priority changes by sprint</li>
+                        <li>Baseline current state by analyzing issue history from past 3 sprints</li>
+                        <li>Sprint rule: Freeze priorities after Day 1 planning (exceptions require PM approval)</li>
+                    </ul>
+                </div>
+
+                <h3>Action Plan: Closing the Gaps</h3>
+                <div style="background: #fff3cd; padding: 1.5rem; border-left: 4px solid #ffc107; margin: 1rem 0;">
+                    <h4>Immediate (Sprint 9 - Next 2 Weeks)</h4>
+                    <ol style="padding-left: 2rem;">
+                        <li><strong>Portfolio Predictability:</strong> Validate Sprint 9 workload (~142 issues) and right-size based on 80-issue historical completion rate</li>
+                        <li><strong>Portfolio Visibility:</strong> Assign all 100 unassigned issues, prioritize 36 security findings</li>
+                        <li><strong>Capacity Allocation:</strong> Maintain current 63/27/10 split (already on target)</li>
+                    </ol>
+
+                    <h4>Short-term (Next 30 Days)</h4>
+                    <ol style="padding-left: 2rem;">
+                        <li><strong>Lead Time Tracking:</strong> Add "Production Deploy Date" custom field and manual data collection</li>
+                        <li><strong>Priority Stability:</strong> Enable changelog tracking and establish sprint planning freeze policy</li>
+                        <li><strong>Deployment Frequency:</strong> Baseline current deployment cadence via CI/CD log audit</li>
+                    </ol>
+
+                    <h4>Long-term (Next 90 Days)</h4>
+                    <ol style="padding-left: 2rem;">
+                        <li><strong>CI/CD Integration:</strong> Automate deployment tracking and change failure rate monitoring</li>
+                        <li><strong>DORA Metrics Dashboard:</strong> Full implementation of deployment frequency, lead time, and change failure rate</li>
+                        <li><strong>Portfolio Predictability:</strong> Target 60%+ completion rate (Yellow) by end of Q2, 80%+ (Green) by Q3</li>
+                    </ol>
+                </div>
             </section>
 
             <!-- Project Overview -->
