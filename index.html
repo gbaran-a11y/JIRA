@@ -296,17 +296,187 @@
             text-align: center;
         }
 
-        .team-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
+        /* Chat Widget Styles */
+        .chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 1000;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .team-card h4 {
-            margin-top: 0;
+        .chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 400px;
+            max-width: calc(100vw - 60px);
+            height: 600px;
+            max-height: calc(100vh - 150px);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-window.open {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .chat-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            background: #f7fafc;
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .chat-message.user {
+            background: #667eea;
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-message.assistant {
+            background: white;
+            color: #333;
+            border: 1px solid #e2e8f0;
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .chat-send {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .chat-send:hover {
+            opacity: 0.9;
+        }
+
+        .chat-send:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .suggested-questions {
+            padding: 1rem;
+            background: #edf2f7;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .suggested-questions h4 {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .suggested-question {
+            display: block;
+            padding: 0.5rem;
+            margin: 0.25rem 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
             color: #667eea;
+            text-decoration: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .suggested-question:hover {
+            background: #f7fafc;
+        }
+
+        .sprint-date {
+            color: #718096;
+            font-size: 0.9rem;
+            font-style: italic;
         }
 
         @media print {
@@ -320,6 +490,10 @@
 
             section {
                 page-break-inside: avoid;
+            }
+
+            .chat-button, .chat-window {
+                display: none !important;
             }
         }
 
@@ -338,6 +512,17 @@
 
             table {
                 font-size: 0.85rem;
+            }
+
+            .chat-window {
+                width: calc(100vw - 20px);
+                right: 10px;
+                left: 10px;
+            }
+
+            .chat-button {
+                right: 15px;
+                bottom: 15px;
             }
         }
     </style>
@@ -476,8 +661,9 @@
                 <h2>Sprint 8 Analysis (CRITICAL)</h2>
 
                 <div class="alert alert-critical">
-                    <strong>Sprint End Date:</strong> April 14, 2026 (4 days remaining)<br>
-                    <strong>Status:</strong> SIGNIFICANTLY BEHIND SCHEDULE
+                    <strong>Sprint 8:</strong> BT - 2026 Sprint 8<br>
+                    <strong>Dates:</strong> April 3 - April 14, 2026 (11 days)<br>
+                    <strong>Status:</strong> Day 7 of 11 - SIGNIFICANTLY BEHIND SCHEDULE
                 </div>
 
                 <h3>Progress Overview</h3>
@@ -659,23 +845,6 @@
                     <strong>Workload Imbalance Detected</strong>
                     <p>Joe Catlett has 100 issues (4.6x average workload). This represents a critical capacity bottleneck and potential burnout risk. Immediate redistribution recommended.</p>
                 </div>
-
-                <h3>Unassigned Issues by Type</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Count</th>
-                            <th>Percentage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Story</td><td>53</td><td>53%</td></tr>
-                        <tr><td>Security Finding</td><td>36</td><td>36%</td></tr>
-                        <tr><td>Epic</td><td>8</td><td>8%</td></tr>
-                        <tr><td>Task</td><td>3</td><td>3%</td></tr>
-                    </tbody>
-                </table>
             </section>
 
             <!-- Historical Velocity -->
@@ -700,6 +869,7 @@
                     <thead>
                         <tr>
                             <th>Sprint</th>
+                            <th>Dates</th>
                             <th>Committed</th>
                             <th>Completed</th>
                             <th>Rate</th>
@@ -707,15 +877,69 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Sprint 1</td><td>301</td><td>183</td><td>60.8%</td><td>118</td></tr>
-                        <tr><td>Sprint 2</td><td>314</td><td>190</td><td>60.5%</td><td>124</td></tr>
-                        <tr><td>Sprint 3</td><td>304</td><td>176</td><td>57.9%</td><td>128</td></tr>
-                        <tr><td>Sprint 4</td><td>292</td><td>169</td><td>57.9%</td><td>123</td></tr>
-                        <tr><td>Sprint 5</td><td>251</td><td>130</td><td>51.8%</td><td>121</td></tr>
-                        <tr><td>Sprint 6</td><td>227</td><td>106</td><td>46.7%</td><td>121</td></tr>
-                        <tr><td>Sprint 7</td><td>213</td><td>69</td><td>32.4%</td><td>144</td></tr>
+                        <tr>
+                            <td>Sprint 1</td>
+                            <td class="sprint-date">Dec 24, 2025 - Jan 6, 2026</td>
+                            <td>301</td>
+                            <td>183</td>
+                            <td>60.8%</td>
+                            <td>118</td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 2</td>
+                            <td class="sprint-date">Jan 7 - Jan 20, 2026</td>
+                            <td>314</td>
+                            <td>190</td>
+                            <td>60.5%</td>
+                            <td>124</td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 3</td>
+                            <td class="sprint-date">Jan 21 - Feb 3, 2026</td>
+                            <td>304</td>
+                            <td>176</td>
+                            <td>57.9%</td>
+                            <td>128</td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 4</td>
+                            <td class="sprint-date">Feb 4 - Feb 17, 2026</td>
+                            <td>292</td>
+                            <td>169</td>
+                            <td>57.9%</td>
+                            <td>123</td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 5</td>
+                            <td class="sprint-date">Feb 18 - Mar 3, 2026</td>
+                            <td>251</td>
+                            <td>130</td>
+                            <td>51.8%</td>
+                            <td>121</td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 6</td>
+                            <td class="sprint-date">Mar 4 - Mar 17, 2026</td>
+                            <td>227</td>
+                            <td>106</td>
+                            <td>46.7%</td>
+                            <td>121</td>
+                        </tr>
+                        <tr>
+                            <td>Sprint 7</td>
+                            <td class="sprint-date">Mar 18 - Mar 31, 2026</td>
+                            <td>213</td>
+                            <td>69</td>
+                            <td>32.4%</td>
+                            <td>144</td>
+                        </tr>
                         <tr style="background: #edf2f7; font-weight: bold;">
-                            <td>Average</td><td>257</td><td>146</td><td>52.6%</td><td>126</td>
+                            <td>Average</td>
+                            <td class="sprint-date">-</td>
+                            <td>257</td>
+                            <td>146</td>
+                            <td>52.6%</td>
+                            <td>126</td>
                         </tr>
                     </tbody>
                 </table>
@@ -733,18 +957,6 @@
                     <li><strong>High Carryover Rate:</strong> Average 49% carryover rate is unsustainable</li>
                     <li><strong>Increasing Reactive Work:</strong> High-priority work increased 56% in recent sprints</li>
                 </ul>
-
-                <h3>Root Causes</h3>
-                <div class="recommendation-box">
-                    <h4>Analysis</h4>
-                    <ul style="margin-left: 1.5rem;">
-                        <li>Overly ambitious sprint planning (not aligned with historical capacity)</li>
-                        <li>Increasing technical complexity and dependencies</li>
-                        <li>More high-priority interruptions disrupting planned work</li>
-                        <li>Potential team burnout from sustained over-commitment</li>
-                        <li>Lack of WIP limits allowing work to accumulate in progress</li>
-                    </ul>
-                </div>
             </section>
 
             <!-- Recommendations -->
@@ -766,6 +978,7 @@
 
                 <div class="recommendation-box">
                     <h4>2. Sprint 9 Planning Completion (By April 11)</h4>
+                    <p><strong>Sprint 9 Dates:</strong> April 15 - April 28, 2026 (13 days)</p>
                     <p><strong>Priority:</strong> CRITICAL</p>
                     <ul style="margin-left: 1.5rem;">
                         <li>Add Sprint 8 carryover items to Sprint 9 backlog</li>
@@ -775,70 +988,6 @@
                     </ul>
                     <p><strong>Expected Outcome:</strong> Sprint 9 properly planned with balanced team capacity</p>
                 </div>
-
-                <div class="recommendation-box">
-                    <h4>3. Security Issues Assignment (By April 12)</h4>
-                    <p><strong>Priority:</strong> HIGH</p>
-                    <ul style="margin-left: 1.5rem;">
-                        <li>Immediately assign all 7 unassigned security vulnerabilities</li>
-                        <li>Prioritize based on asset count and severity</li>
-                        <li>Establish SLA for security finding remediation</li>
-                    </ul>
-                </div>
-
-                <h3>Short-Term Improvements (Next 2-4 Weeks)</h3>
-                <div class="recommendation-box">
-                    <h4>4. Establish Sprint Capacity Guidelines</h4>
-                    <p><strong>Recommended Sprint Size:</strong></p>
-                    <ul style="margin-left: 1.5rem;">
-                        <li><strong>Team Size:</strong> 15-20 contributors</li>
-                        <li><strong>Target Capacity:</strong> 48-72 issues per sprint</li>
-                        <li><strong>Per Person:</strong> 8-12 issues per 2-week sprint</li>
-                        <li><strong>Buffer:</strong> 20% reserved for emergent work</li>
-                    </ul>
-                    <p><strong>Sprint Sizing Formula:</strong><br>
-                    Recommended Commitment = (Team Size × 5 issues) + 10% buffer</p>
-                </div>
-
-                <div class="recommendation-box">
-                    <h4>5. Implement WIP Limits</h4>
-                    <ul style="margin-left: 1.5rem;">
-                        <li>Limit "In Progress" to 20% of sprint capacity (~30 issues)</li>
-                        <li>Enforce "finish first" policy in standups</li>
-                        <li>Review WIP daily and identify blockers</li>
-                    </ul>
-                </div>
-
-                <div class="recommendation-box">
-                    <h4>6. Workload Rebalancing</h4>
-                    <p><strong>Target Distribution for Sprint 9:</strong></p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Team Member</th>
-                                <th>Current S9</th>
-                                <th>Target S9</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Joe Catlett</td><td>0</td><td>10-12</td><td>Add work</td></tr>
-                            <tr><td>Nathan Mathew</td><td>1</td><td>10-12</td><td>Add work</td></tr>
-                            <tr><td>Liz Shannon</td><td>0</td><td>8-10</td><td>Add work</td></tr>
-                            <tr><td>Paul Kim</td><td>6</td><td>8-10</td><td>Slight increase</td></tr>
-                            <tr><td>Others</td><td>Varies</td><td>6-10</td><td>Balance</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>Long-Term Strategy (Next 60-90 Days)</h3>
-                <ul style="list-style-position: inside; padding-left: 1rem;">
-                    <li><strong>Capacity Baseline:</strong> Establish realistic team capacity at 130-150 issues/sprint, build consistency before scaling</li>
-                    <li><strong>Technical Debt Reduction:</strong> Allocate 20% of sprint to technical debt to prevent velocity degradation</li>
-                    <li><strong>Process Optimization:</strong> Analyze workflow bottlenecks, reduce handoffs and dependencies</li>
-                    <li><strong>Predictability:</strong> Aim for ±10% variance in velocity to enable better long-term planning</li>
-                    <li><strong>Capacity Dashboard:</strong> Create real-time visibility into team workload and sprint health</li>
-                </ul>
 
                 <h3>Success Metrics</h3>
                 <table>
@@ -851,44 +1000,12 @@
                     </thead>
                     <tbody>
                         <tr><td>Sprint Completion Rate</td><td>32.4%</td><td>65-70%</td></tr>
-                        <tr><td>Carryover Rate</td><td>59-64%</td><td><20%</td></tr>
+                        <tr><td>Carryover Rate</td><td>59-64%</td><td>&lt;20%</td></tr>
                         <tr><td>Issues Per Person</td><td>2.5</td><td>5-6</td></tr>
                         <tr><td>Sprint Sizing</td><td>196 issues</td><td>48-72 issues</td></tr>
-                        <tr><td>WIP %</td><td>38%</td><td><20%</td></tr>
+                        <tr><td>WIP %</td><td>38%</td><td>&lt;20%</td></tr>
                     </tbody>
                 </table>
-            </section>
-
-            <!-- Appendix -->
-            <section id="appendix">
-                <h2>Appendix: Data Sources & Methodology</h2>
-
-                <h3>Data Sources</h3>
-                <ul style="list-style-position: inside; padding-left: 1rem;">
-                    <li><strong>JIRA Instance:</strong> https://tenable.atlassian.net</li>
-                    <li><strong>Project:</strong> BT (Business Technology)</li>
-                    <li><strong>Board ID:</strong> 992</li>
-                    <li><strong>API:</strong> JIRA Agile API (rest/agile/1.0)</li>
-                    <li><strong>Analysis Date:</strong> April 10, 2026</li>
-                </ul>
-
-                <h3>Metrics Definitions</h3>
-                <ul style="list-style-position: inside; padding-left: 1rem;">
-                    <li><strong>Completion Rate:</strong> (Completed Issues / Total Committed Issues) × 100</li>
-                    <li><strong>Carryover:</strong> Issues not completed by sprint end</li>
-                    <li><strong>Issues Per Person:</strong> Completed Issues / Unique Assignees</li>
-                    <li><strong>WIP %:</strong> In Progress Issues / Total Sprint Issues</li>
-                </ul>
-
-                <h3>Report Sections</h3>
-                <ol style="padding-left: 2rem;">
-                    <li>Executive Summary - High-level overview and critical findings</li>
-                    <li>Project Overview - Total backlog, priority, and type distributions</li>
-                    <li>Sprint 8 Analysis - Current sprint status and at-risk issues</li>
-                    <li>Team Workload Analysis - Individual assignments and capacity</li>
-                    <li>Historical Velocity Analysis - Trends across Sprints 1-7</li>
-                    <li>Recommendations & Action Plan - Immediate, short-term, and long-term strategies</li>
-                </ol>
             </section>
         </div>
 
@@ -898,5 +1015,188 @@
             <p>For questions or updates, contact the BT Project Management Team</p>
         </footer>
     </div>
+
+    <!-- Chat Widget -->
+    <button class="chat-button" id="chatButton" onclick="toggleChat()">💬</button>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h3>Ask About the Data</h3>
+            <button class="chat-close" onclick="toggleChat()">×</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="suggested-questions">
+                <h4>Suggested Questions:</h4>
+                <a class="suggested-question" onclick="askQuestion('What is the completion rate for Sprint 8?')">What is the completion rate for Sprint 8?</a>
+                <a class="suggested-question" onclick="askQuestion('Who are the most overloaded team members?')">Who are the most overloaded team members?</a>
+                <a class="suggested-question" onclick="askQuestion('What are the critical security issues?')">What are the critical security issues?</a>
+                <a class="suggested-question" onclick="askQuestion('How has velocity changed over time?')">How has velocity changed over time?</a>
+                <a class="suggested-question" onclick="askQuestion('What are the recommendations for Sprint 9?')">What are the recommendations for Sprint 9?</a>
+            </div>
+            <div class="chat-message assistant">
+                <strong>AI Assistant</strong><br>
+                Hi! I'm here to help you understand the JIRA analysis data. Ask me anything about sprints, team workload, velocity trends, or recommendations.
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask a question..." onkeypress="handleKeyPress(event)">
+            <button class="chat-send" id="chatSend" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // JIRA Data for AI responses
+        const jiraData = {
+            totalIssues: 1666,
+            openIssues: 359,
+            unassignedIssues: 100,
+            teamMembers: 12,
+            sprint8: {
+                name: "Sprint 8",
+                dates: "April 3-14, 2026",
+                totalIssues: 196,
+                completionRate: 22.4,
+                daysRemaining: 4,
+                currentDay: 7,
+                totalDays: 11,
+                unstarted: 51,
+                inProgress: 39,
+                uat: 36,
+                closed: 32,
+                onHold: 16
+            },
+            topLoadedMembers: [
+                { name: "Joe Catlett", issues: 100 },
+                { name: "Himanshu Shah", issues: 28 },
+                { name: "Nathan Mathew", issues: 28 },
+                { name: "Vickie Wong", issues: 27 },
+                { name: "Christine Elvard", issues: 16 }
+            ],
+            securityIssues: [
+                "BT-5917: Infinite loop (22 assets)",
+                "BT-5895: Improper input validation",
+                "BT-5894: XML Entity Expansion (3 assets)",
+                "BT-5872: Data amplification vulnerability",
+                "BT-5871: Uncaught Exception",
+                "BT-5870: Uncaught Exception",
+                "BT-5869: Symlink Attack"
+            ],
+            velocityTrend: [
+                { sprint: 1, dates: "Dec 24, 2025 - Jan 6, 2026", rate: 60.8, committed: 301, completed: 183 },
+                { sprint: 2, dates: "Jan 7-20, 2026", rate: 60.5, committed: 314, completed: 190 },
+                { sprint: 3, dates: "Jan 21 - Feb 3, 2026", rate: 57.9, committed: 304, completed: 176 },
+                { sprint: 4, dates: "Feb 4-17, 2026", rate: 57.9, committed: 292, completed: 169 },
+                { sprint: 5, dates: "Feb 18 - Mar 3, 2026", rate: 51.8, committed: 251, completed: 130 },
+                { sprint: 6, dates: "Mar 4-17, 2026", rate: 46.7, committed: 227, completed: 106 },
+                { sprint: 7, dates: "Mar 18-31, 2026", rate: 32.4, committed: 213, completed: 69 }
+            ],
+            recommendations: {
+                sprint8: "Move 43 issues to Sprint 9 immediately",
+                sprint9: "Plan for 60-80 issues (currently only 22)",
+                workload: "Rebalance Joe Catlett's 100 issues across team",
+                target: "65-70% completion rate within 3 months"
+            }
+        };
+
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('open');
+            if (chatWindow.classList.contains('open')) {
+                document.getElementById('chatInput').focus();
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+
+            if (message === '') return;
+
+            addMessage(message, 'user');
+            input.value = '';
+
+            setTimeout(() => {
+                const response = generateResponse(message);
+                addMessage(response, 'assistant');
+            }, 500);
+        }
+
+        function askQuestion(question) {
+            document.getElementById('chatInput').value = question;
+            sendMessage();
+        }
+
+        function addMessage(text, type) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${type}`;
+
+            if (type === 'assistant') {
+                messageDiv.innerHTML = `<strong>AI Assistant</strong><br>${text}`;
+            } else {
+                messageDiv.textContent = text;
+            }
+
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function generateResponse(question) {
+            const q = question.toLowerCase();
+
+            // Sprint 8 questions
+            if (q.includes('sprint 8') || q.includes('current sprint')) {
+                if (q.includes('completion') || q.includes('progress')) {
+                    return `Sprint 8 (${jiraData.sprint8.dates}) is at ${jiraData.sprint8.completionRate}% completion on day ${jiraData.sprint8.currentDay} of ${jiraData.sprint8.totalDays}. This is significantly behind schedule - we should be at ~64% by now. There are ${jiraData.sprint8.unstarted} issues not started with only ${jiraData.sprint8.daysRemaining} days remaining.`;
+                }
+                if (q.includes('date')) {
+                    return `Sprint 8 runs from ${jiraData.sprint8.dates} (${jiraData.sprint8.totalDays} days total). We are currently on day ${jiraData.sprint8.currentDay} with ${jiraData.sprint8.daysRemaining} days remaining.`;
+                }
+                return `Sprint 8 (${jiraData.sprint8.dates}) has ${jiraData.sprint8.totalIssues} issues with only ${jiraData.sprint8.completionRate}% complete. Status breakdown: ${jiraData.sprint8.closed} closed, ${jiraData.sprint8.inProgress} in progress, ${jiraData.sprint8.uat} in UAT, ${jiraData.sprint8.unstarted} not started, ${jiraData.sprint8.onHold} on hold.`;
+            }
+
+            // Team workload questions
+            if (q.includes('overload') || q.includes('workload') || q.includes('team member') || q.includes('who has')) {
+                const top3 = jiraData.topLoadedMembers.slice(0, 3);
+                return `The most overloaded team members are: ${top3.map(m => `${m.name} (${m.issues} issues)`).join(', ')}. Joe Catlett is critically overloaded with ${jiraData.topLoadedMembers[0].issues} issues - that's 4.6x the average workload of ${(jiraData.openIssues / jiraData.teamMembers).toFixed(1)} issues per person.`;
+            }
+
+            // Security questions
+            if (q.includes('security') || q.includes('vulnerabilit')) {
+                return `There are ${jiraData.securityIssues.length} unassigned high-priority security vulnerabilities requiring immediate attention:\n\n${jiraData.securityIssues.map((s, i) => `${i + 1}. ${s}`).join('\n')}`;
+            }
+
+            // Velocity questions
+            if (q.includes('velocity') || q.includes('trend') || q.includes('decline') || q.includes('history')) {
+                const first = jiraData.velocityTrend[0];
+                const last = jiraData.velocityTrend[jiraData.velocityTrend.length - 1];
+                return `Velocity has declined significantly from Sprint 1 (${first.rate}%) to Sprint 7 (${last.rate}%) - a ${(first.rate - last.rate).toFixed(1)} percentage point drop (${((first.rate - last.rate) / first.rate * 100).toFixed(0)}% decline). Average completion rate across all sprints is 52.6%. This declining trend indicates chronic over-commitment and increasing work complexity.`;
+            }
+
+            // Sprint dates
+            if (q.includes('dates') || q.includes('when')) {
+                return `Sprint dates:\n${jiraData.velocityTrend.map(s => `Sprint ${s.sprint}: ${s.dates}`).join('\n')}\nCurrent Sprint 8: ${jiraData.sprint8.dates}`;
+            }
+
+            // Recommendations
+            if (q.includes('recommend') || q.includes('should') || q.includes('sprint 9') || q.includes('next')) {
+                return `Key recommendations:\n\n1. Sprint 8: ${jiraData.recommendations.sprint8}\n2. Sprint 9: ${jiraData.recommendations.sprint9}\n3. Workload: ${jiraData.recommendations.workload}\n4. Target: ${jiraData.recommendations.target}\n\nSprint 9 runs April 15-28, 2026 (13 days) and needs proper capacity planning to avoid Sprint 8's issues.`;
+            }
+
+            // Summary questions
+            if (q.includes('summary') || q.includes('overview') || q.includes('key finding')) {
+                return `Key findings:\n\n• ${jiraData.totalIssues} total issues, ${jiraData.openIssues} open\n• Sprint 8: ${jiraData.sprint8.completionRate}% complete (critically behind)\n• ${jiraData.unassignedIssues} unassigned issues\n• ${jiraData.securityIssues.length} security vulnerabilities need immediate attention\n• Velocity declined ${((jiraData.velocityTrend[0].rate - jiraData.velocityTrend[6].rate) / jiraData.velocityTrend[0].rate * 100).toFixed(0)}% over 7 sprints\n• Joe Catlett has ${jiraData.topLoadedMembers[0].issues} issues (4.6x average)`;
+            }
+
+            // Default response
+            return `I can help you with questions about:\n\n• Sprint 8 status and dates\n• Team workload and capacity\n• Security vulnerabilities\n• Historical velocity trends\n• Sprint dates and timelines\n• Recommendations for improvement\n\nTry asking: "What is the completion rate for Sprint 8?" or "Who are the most overloaded team members?"`;
+        }
+    </script>
 </body>
 </html>
